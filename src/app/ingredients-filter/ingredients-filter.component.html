@@ -1,0 +1,7 @@
+<mat-form-field>
+	<mat-select placeholder="Select Favorite Ingredients" (selectionChange)='onSelectedIngredient($event)'>
+		<mat-option *ngFor="let ingredient of ingredientsList" [value]="ingredient">
+	    	{{ingredient}}
+	    </mat-option>
+	</mat-select>
+</mat-form-field>

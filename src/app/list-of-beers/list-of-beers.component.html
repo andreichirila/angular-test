@@ -1,0 +1,42 @@
+<div *ngIf="isDataAvailable">
+
+	<ingredients-filter
+		(selectedIngredient)='onSelectedIngredient($event)'>
+	</ingredients-filter>
+
+	<mat-form-field>
+      	<input matInput (keyup)="applyFilter($event.target.value)" placeholder="search my favorite beer">
+    </mat-form-field>
+
+	<mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
+
+	    <ng-container matColumnDef="name">
+	      <mat-header-cell *matHeaderCellDef mat-sort-header matSortStart="asc"> Name </mat-header-cell>
+	      <mat-cell *matCellDef="let beer" 
+	      			[ngClass]="{'filtered' : beer.name === selectedBeer}"> 
+	      			{{beer.name}} 
+	      	</mat-cell>
+	    </ng-container>
+
+	    <ng-container matColumnDef="first_brewed">
+	      <mat-header-cell *matHeaderCellDef mat-sort-header> First brewed </mat-header-cell>
+	      <mat-cell *matCellDef="let beer" 
+	      			[ngClass]="{'filtered' : beer.name === selectedBeer}"> 
+					{{beer.first_brewed}} 
+	      	</mat-cell>
+	    </ng-container>
+
+	    <ng-container matColumnDef="abv">
+	      <mat-header-cell *matHeaderCellDef mat-sort-header> Abv </mat-header-cell>
+	      <mat-cell *matCellDef="let beer"
+	      			[ngClass]="{'filtered' : beer.name === selectedBeer}"> 
+	      			{{beer.abv}} 
+	      		</mat-cell>
+	    </ng-container>
+
+		<mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+	  
+	</mat-table>
+
+</div>
