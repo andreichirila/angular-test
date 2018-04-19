@@ -1,12 +1,3 @@
-angular recruitment test
-=========
-
-This test is about to estimate your experience in develop Apps with Angular. 
-
-See what you can do in the available time. You can choose any of the following requirements.
-If the time is over please zip your code and send it to norman@dynabase.de.
-The timestamp of the email is important.
-
 # Requirements
 
 * Code quality is more important than quantity.
